@@ -1,0 +1,856 @@
+:root
+{
+    --primary: white;
+    --secondary: rgb(129, 129, 129);
+    --highlight: rgb(48, 196, 48);
+    --border: rgb(101, 101, 101);
+
+    font-size: 1.2vmax;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+    font-family: 'OpenSans';
+}
+
+
+
+::-webkit-scrollbar
+{
+    width: 0.3vmax;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track
+{
+    color: transparent;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece
+{
+    display:none;
+}
+
+
+::-webkit-scrollbar-thumb
+{
+    background-color: white;
+    border-radius: 0.4vmax;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    position: fixed;
+    display: flex;
+    transform: translateX(-50%);
+    left: 50%;
+    background-color: black;
+    border-bottom: var(--secondary) 1px solid;
+    align-items: center;
+    width: 100%;
+    height: 5vmax;
+    max-width: 1920px;
+    max-height: 108px;
+    z-index: 50;
+    top: 0;
+}
+
+body{
+    background-color: black;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    position: relative;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#prefoot {
+    position: relative;
+    height: 50vmax;
+    width: 100%;
+    overflow: hidden;
+}
+
+h1
+{
+    position: relative;
+    margin-left: 10vw;
+    margin-right:15vw;
+    color: rgb(222, 222, 222);
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    animation: 0.s appear ease-in-out;
+    white-space: nowrap;
+}
+
+h2 span
+{
+    color: #10d34a;
+    font-weight: 400;
+}
+
+h2
+{
+    color: rgb(228, 228, 228);
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-align: left;
+    animation: 0.s appear ease-in-out;
+}
+
+p
+{
+    text-align: center;
+    color: var(--secondary);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+p span{
+    color: var(--highlight);
+    font-weight: 700;
+    animation: 0.6s appear ease-in-out;
+}
+
+.over
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 2;
+    opacity: 0;
+}
+
+.movtext
+{
+    position: absolute;
+    display: flexbox;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left: 40%;
+    opacity: 1;
+    height: auto;
+    width: 66%;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.three-sub
+{
+    position: relative;
+    display: flex;
+    top: 0;
+    height: 50vmax;
+    border-bottom: var(--border) 1px solid;
+    width: 100%;
+    overflow: clip;
+}
+
+.three-subvid
+{
+    position: relative;
+    height: 200%;
+    width: 35%;
+    border-right: var(--border) 1px solid;
+    border-left: var(--border) 1px solid;
+}
+
+.three-subtxt
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 65%;
+}
+
+.input[type=text]{
+    width: 36rem;
+    height: 3rem;
+    background-color: rgba(88, 88, 88, 0.5);
+    position: relative;
+    color: white;
+    padding: 2px 10px;
+    margin-top: 3rem;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.input[type=text]:focus
+{
+    background-color: white;
+    color: black;
+}
+
+#sel{
+    position: relative;
+    width: 36rem;
+    height: 3rem;
+    background-color: rgba(88, 88, 88, 0.5);
+    position: relative;
+    color: white;
+    padding: 2px 10px;
+    margin-top: 1rem;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.sel:focus
+{
+    background-color: white;
+    color: black;
+}
+
+
+#options
+{
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: -moz-fit-content;
+    height: fit-content;
+    box-shadow: rgba(255, 255, 255, 0.9);
+    width: 85%;
+    display: none;
+    margin-top: 8px;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 4px 0;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#options.show
+{
+    display: flex;
+}
+
+#options::-webkit-scrollbar-thumb
+{
+    background-color: #86A2FF;
+}
+
+.opt
+{
+    position: relative;
+    height: 10%;
+    min-height: 3rem;
+    width: 95%;
+    margin: 2px 2px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.1rem;
+    color: rgb(200, 200, 200);
+    font-weight: 400;
+}
+
+.opt:hover
+{
+    background-color: #99b1ffe0;
+    color: white;
+}
+
+.three-subtxt h2
+{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.nav
+{
+    font-size: 0.8rem;
+    margin-right: 5vw;
+}
+
+.nav:hover{
+    color:#86A2FF;
+    cursor: pointer;
+}
+
+.subtumb
+{
+    position: relative;
+    height: 40%;
+    width: 100%;
+    scroll-behavior: auto;
+    overflow-x: scroll;
+}
+
+.subtumb::-webkit-scrollbar
+{
+    display: none;
+}
+
+.tumbblock
+{
+    position: relative;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 3/2;
+    margin-right: 10px
+}
+
+.ticon
+{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    background-color: white;
+    left: 50%;
+    height: 45%;
+    border-radius: 100%;
+    width: auto;
+    background-size: 65%; background-repeat: no-repeat; background-position: center;
+    aspect-ratio: 1/1;
+}
+
+.ttxt{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 65%;
+    left: 50%;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    font-size: 1.3rem;
+    color: rgb(212, 212, 212);
+    text-align: center;
+}
+
+#tumblr
+{
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 40vmax;
+    max-height: 864;
+    width: 100%;
+    overflow-x: scroll;
+    border-bottom: var(--secondary) 1px solid;
+}
+
+#prereg
+{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#prereg h2
+{
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+#prereg p
+{
+    text-align: center;
+}
+
+#logo
+{
+    position: relative;
+    background-image: url(./logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 0.5rem;
+    height: 2rem;
+    width:2rem;
+}
+
+
+
+#nmbutton
+{
+    position: absolute;
+    background-color: #86A2FF;
+    right: 0;
+    border-radius: 10vw;
+    margin-right: 10vw;
+    color: black;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0.3vmax 2vw;
+    font-size: 0.8rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#three-d
+{
+    position: absolute;
+    height: 100%;
+    max-height: 1080px;
+    width: auto;
+    aspect-ratio: 800 / 1080;
+    top: 100%;
+    right: 5%;
+    z-index: 3;
+}
+
+#three-d.animate
+{
+    animation: vid 0.8s ease-out forwards;
+    animation-delay: 500ms;
+}
+
+#business
+{
+    position: absolute;
+    height: 90%;
+    width: 100%;
+    background-image: url(./business.webp);
+    background-position: center;
+    background-size: cover;
+    animation: updown 1.5s ease-in-out infinite;
+}
+
+
+#def
+{
+    position: absolute;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.80);
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    transform: translateY(-50%);
+    top: 60%;
+    padding: 0 10vw;
+}
+
+#sectionone
+{
+    position: relative;
+    height: 53vmax;
+    width: 100%;
+    max-height: 1080px;
+    max-width: 1920px;
+    border-bottom: var(--border) 1px solid;
+    overflow: hidden;
+}
+
+#sectiontwo
+{
+    position: relative;
+    display: flex;
+    height: 20vmax;
+    max-height: 500px;
+    width: 100%;
+    max-width: 1920px;
+    overflow: hidden;
+}
+
+#vidmain {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 53%;
+    left: 75%;
+    height: 105%;
+    max-height: 1080px;
+    z-index: -1;
+}
+
+#overlay {
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.315);
+}
+
+#student {
+    position: sticky;
+    top: 2vmax;
+    height: 50%;
+    width: 100%;
+    z-index: -1;
+}
+
+#entre-sub
+{
+    height: 300%;
+    top: -100%;
+}
+
+#entre {
+    position: sticky;
+    top: 2vmax;
+    height: 33.334%;
+    width: 100%;
+    z-index: -1;
+}
+
+#invest-sub {
+    height: 205%;
+    top: -100%;
+}
+
+#invest {
+    position: sticky;
+    top: 2vmax;
+    height: 48.78%;
+    width: 100%;
+    z-index: -1;
+}
+
+#button {
+    display:flex; border-radius: 10px;
+    width: 14vw;
+    height: 3.8vw;
+    background-color: #86A2FF;
+    font-size: 0.8lh;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes escape {
+    0% {
+        width: auto;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes border {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 2.5rem;
+    }
+}
+
+@keyframes enter {
+    0% {
+        margin-left: -100%;
+    }
+    100% {
+        margin-left: 1vmax;
+    }
+}
+
+@keyframes vid {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: 3%;
+    }
+}
+
+@keyframes updown {
+    0% {
+        top: 3%;
+    }
+    50% {
+        top: 4%;
+    }
+    100% {
+        top: 3%;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    header{
+        height: 8vmax;
+    }
+
+    #logo
+    {
+        position: relative;
+        background-image: url(./logo.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-right: 0.5rem;
+        height: 2.5rem;
+        width:2.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #prefoot {
+        height: 90vmax;
+    }
+
+    h2 span
+    {
+        color: #10d34a;
+        font-weight: 400;
+    }
+
+    #business {
+        left: 8%;
+    }
+
+
+    #prereg
+    {
+        top: 0;
+        transform: translate(-50%, 0);
+        margin-top: 8rem;
+    }
+    
+    p
+    {
+        text-align: left;
+        color: var(--secondary);
+        font-size: 2rem;
+        font-weight: 500;
+        animation: 0.6s appear ease-in-out;
+    }
+    
+    p span{
+        color: var(--highlight);
+        font-weight: 700;
+        animation: 0.6s appear ease-in-out;
+    }
+
+    .over
+    {
+        opacity: 0.7;
+        z-index: 3;
+    }
+
+    #def {
+        top: 50%;
+        font-size: 1.8rem;
+    }
+    
+    .movtext
+    {
+        position: absolute;
+        display: flexbox;
+        transform: translateY(-50%);
+        top: 70%;
+        left: 10vw;
+        opacity: 1;
+        height: auto;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .subtumb
+    {
+        margin-bottom: 3%;
+    }
+    
+    .three-sub
+    {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        top: 0;
+        height: 90vmax;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .three-subvid
+    {
+        position: absolute;
+        top: 40%;
+        padding-top: 3.5%;
+        height: 100%;
+        max-height: 1080px;
+        width: 100%;
+        border: none;
+        overflow: hidden;
+    }
+
+    .three-subtxt
+    {
+        position: absolute;
+        display: flex;
+        left: 5%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        height: 50%;
+        width: 90%;
+        z-index: 1;
+    }
+
+    .three-subtxt h2
+    {
+        font-size: 4.5rem;
+    }
+    
+    #name
+    {
+        visibility: hidden;
+        width: 0;
+    }
+
+    #sectionone {
+        height: 70vmax;
+    }
+
+    #sectiontwo {
+        height: 30vmax;
+    }
+
+    #nmbutton
+    {
+        position: absolute;
+        background-color: #86A2FF;
+        right: 0;
+        border-radius: 10vw;
+        margin-right: 10vw;
+
+        height: -moz-fit-content;
+        height: fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 0.3vmax 2vw;
+        font-size: 1.2rem;
+        text-align: center;
+        white-space: nowrap;
+    }
+    
+    #vidmain {
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 55%;
+        left: 70%;
+        height: 100%;
+        max-height: 1080px;
+        z-index: -1;
+    }
+
+    .tumbblock
+    {
+        aspect-ratio: 1/1;
+    }
+
+    #button {
+        visibility: hidden;
+    }
+
+    #student {
+        position: absolute;
+        top: 0;
+        left: -5%;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
+    
+    #entre-sub
+    {
+        position: absolute;
+        top: 40%;
+        padding-top: 3.5%;
+        height: 100%;
+        max-height: 1080px;
+        background-color: black;
+        width: 100%;
+        border: none;
+        overflow: hidden;
+    }
+    
+    #entre {
+        position: absolute;
+        top: 0;
+        left: 5%;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
+    
+    #invest-sub {
+        position: absolute;
+        top: 40%;
+        padding-top: 3.5%;
+        height: 100%;
+        max-height: 1080px;
+        background-color: black;
+        width: 100%;
+        border: none;
+        overflow: hidden;
+    }
+    
+    #invest {
+        position: absolute;
+        top: 0;
+        left: -5%;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    p {
+        text-align: letf;
+        letter-spacing: 0.5px;
+        word-spacing: 2px;
+        padding: 0px 2px;
+    }
+
+    .three-subtxt {
+        top: 5%;
+    }
+
+    .three-subtxt p {
+        font-size: 1.7rem;
+    }
+
+    #sectiontwo {
+        height: 35vmax;
+    }
+
+    #prereg p
+    {
+        font-size: 1.5rem;
+    }
+
+    .ttxt{
+        font-size: 1.5rem;
+    }
+}
